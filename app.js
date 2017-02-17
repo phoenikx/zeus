@@ -10,6 +10,12 @@ app.get("/",function(req,res)
 {
    res.render("index");
 });
+
+app.post("/download",function(req,res)
+{
+    
+});
+
 app.listen(process.env.PORT,process.env.IP,function(err)
 {
     if(err)

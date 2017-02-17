@@ -1,0 +1,30 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row">
+        <!-- this column for displaying active downloads-->
+        <div class="col-md-4">
+            
+        </div>
+        <div class="col-md-4">
+            <div id="input-box">
+               <form method="post" action="/download">
+                  <div class="form-group">
+                    <label for="download-link"></label>
+                    <input type="text" class="form-control" id="download-link" placeholder="Enter link to download">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-block btn-success">Submit</button>
+                </form>
+
+            </div>
+        </div>
+        <!--This is for displaying recent downloads-->
+        <div class="col-md-4">
+            
+        </div>
+    </div>
+</div>
+
+
+<% include partials/footer %>
