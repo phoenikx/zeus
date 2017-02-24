@@ -9,11 +9,35 @@
             <div id="input-box">
                <form method="post" action="/download">
                   <div class="form-group">
-                    <label for="download-link"></label>
-                    <input type="text" name="link" class="form-control" id="download-link" placeholder="Enter link to download">
+                    <label for="download-link">Download link</label>
+                    <input type="text" name="link" class="form-control" id="download-link" placeholder="Enter link to download" required>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="file_name">File name</label>
+                    <input type="text" name="file_name" class="form-control" id="file_name" placeholder="Enter name of this file" required>
                   </div>
                   
-                  <button type="submit" class="btn btn-block btn-success">Submit</button>
+                  <div class="form-group">
+                      <label for="category">
+                          Category:
+                      </label>
+                      <select id="category" name="category" class="form-control">
+                        <option value="Movies">Movies</option>
+                        <option value="Audio Songs">Audio Songs</option>
+                        <option value="Video Songs">Video Songs</option>
+                        <option value="Games">Games</option>
+                        <option value="TV series">TV Series</option>
+                        <option value="Video Lectures">Video Lectures</option>
+                        <option value="Animation">Animation</option>
+                        <option value="EBooks">EBooks</option>
+                        <option value="Audiobooks">Audiobooks</option>
+                        <option value="Adult">Adult</option>
+                        <option value="others" selected="selected">Others</option>
+                        
+                      </select>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-success">Download</button>
                 </form>
 
             </div>

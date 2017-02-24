@@ -3,9 +3,12 @@ var express               = require("express"),
     passport              = require("passport"),
     bodyParser            = require("body-parser"),
     User                  = require("./models/user"),
+    Download              = require("./models/download"),
     LocalStrategy         = require("passport-local"),
     passportLocalMongoose = require("passport-local-mongoose"),
-    ext                   = require("path"); //for checking extensions of files
+    transmission          = require("transmission"); //for checking extensions of files
+    var transmission = new transmission({  host: 'localhost', port: 9091});
+
 mongoose.connect("mongodb://localhost/indra");
 mongoose.Promise = require('bluebird');
 var app = express();
@@ -32,11 +35,21 @@ app.get("/", function(req, res){
 
 
 app.get("/download",isLoggedIn,function(req, res) {
-   return res.render("download"); 
+   res.render("download");
 });
+
 app.post("/download",isLoggedIn,function(req, res) {
-    var file=req.body.link;
-    console.log(file);
+    var link=req.body.link,
+        name=req.body.file_name,
+        category=req.body.category;
+    console.log(link+" "+name+" "+category);
+    console.log(req.user);
+    console.log(req.connection.remoteAddress);
+    
+    /*transmission.addUrl('url', {"download-dir":"/torrents"},function(err, arg){
+        console.log(err);
+        
+    });*/
     res.render("download");
     //res.send("Here torrent page will be rendered showing status of torrent with URL: "+res.body.link);    
 });
